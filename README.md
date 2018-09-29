@@ -1,5 +1,6 @@
 **_How to start application._**
 
+![Python Project](img/pandas.jpg)
 1) Download Python 37 via link - https://www.python.org/downloads/
     (Big yellow button > Download Python 3.7.0)
 2) Download PyCharm via link - https://www.jetbrains.com/pycharm/download/
@@ -15,5 +16,7 @@
 8) Go to ``First.py``
 9) Right click on it, select ``Run 'First``
 10) Enjoy **PYTHON** !!!
+![Python Project](img/python.png)
+
 
 
