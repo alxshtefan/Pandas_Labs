@@ -1,4 +1,4 @@
-**_How to start application._**
+**_HOW TO START._**
 
 ![Python Project](img/pandas.jpg)
 1) Download Python 37 via link - https://www.python.org/downloads/
