@@ -5,7 +5,7 @@
 2) Download PyCharm via link - https://www.jetbrains.com/pycharm/download/
     (Better Professional version)
 3) While installing all ^, use default path's and agree with everything
-4) Open this project via Open Project in PyCharm tool
+4) Clone and open this project via Open Project in PyCharm tool
 5) Open terminal, go to foder with python.exe file
 6) Run in terminal
     * ``pip install pandas``
