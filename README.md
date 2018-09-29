@@ -11,7 +11,7 @@
     * ``pip install pandas``
     * ``pip install numpy``
     * ``pip install matplotlib``
-7) After each command wait until lib will be completely installed
+7) After running each command wait until library will be completely installed
 8) Go to ``First.py``
 9) Right click on it, select ``Run 'First``
 10) Enjoy **PYTHON** !!!
