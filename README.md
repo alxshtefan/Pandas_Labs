@@ -15,7 +15,3 @@
 8) Go to ``First.py``
 9) Right click on it, select ``Run 'First``
 10) Enjoy **PYTHON** !!!
-![Python Project](img/python.png)
-
-
-
