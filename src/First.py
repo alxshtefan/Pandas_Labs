@@ -13,7 +13,7 @@ class First:
 
     def __init__(self):
         # https://pythonworld.ru/tipy-dannyx-v-python/spiski-list-funkcii-i-metody-spiskov.html
-        self.my_list = [341, 52, 3, 64, 5]
+        self.my_list = [341, 52, 3, 64, 5, 90, 7]
         # print(self.my_list, end='\n\n')
 
         # https://pythonworld.ru/tipy-dannyx-v-python/kortezhi-tuple.html
@@ -52,16 +52,18 @@ def task_1():
 
 # Create data frame & delete NaN column
 def task_2(first):
-    df = pd.DataFrame({
-        'LIST': first.my_list,
-        'TUPLE': first.my_tuple,
-        'STRING LIST': first.my_string_list,
-        'SERIES': first.my_pandas_series,
-        'VECTOR': first.my_numpy_vector,
-        'NaN_VECTOR': first.my_numpy_nan_vector,
-        'ARRAY': [first.my_numpy_array[i] for i in range(0, 5)]
-    })
-    df = df.drop(['NaN_VECTOR'], axis='columns')
+    df = pd.DataFrame({'LIST': first.my_list})
+    df1 = pd.DataFrame({'TUPLE': first.my_tuple})
+    df2 = pd.DataFrame({'STRING_LIST': first.my_string_list})
+    df3 = pd.DataFrame({'SERIES': first.my_pandas_series})
+    df4 = pd.DataFrame({'VECTOR': first.my_numpy_vector})
+    df5 = pd.DataFrame({'NaN_VECTOR': first.my_numpy_nan_vector})
+    df6 = pd.DataFrame({'ARRAY': [first.my_numpy_array[i] for i in range(0, 6)]})
+
+    df = df.join(df1).join(df2).join(df3).join(df4).join(df5).join(df6)
+
+    df = df.drop(['NaN_VECTOR'], axis='columns').drop(['STRING_LIST'], axis='columns')
+
     return df
 
 
@@ -111,7 +113,7 @@ def task_5(df):
             if df[min_differ].mean() > average:
                 min_differ = el
         except TypeError:
-            print(end="")
+            print(end='')
 
     df = df.drop([max_differ], axis='columns')
     df = df.drop([min_differ], axis='columns')
@@ -123,16 +125,20 @@ def task_6(df):
     counter = 0
     arrays = df['ARRAY']
     for el in arrays:
-        df['ARRAY_' + str(counter)] = el[:5]
-        counter += 1
-    df.drop(['ARRAY'], axis='columns')
+        try:
+            df1 = pd.DataFrame({'ARRAY_' + str(counter): el[:7]})
+            df = df.join(df1)
+            counter += 1
+        except TypeError:
+            print(end='')
+    df = df.drop(['ARRAY'], axis='columns')
     return df
 
 
 # Count correlation
 # https://stackoverflow.com/questions/42579908/use-corr-to-get-the-correlation-between-two-columns
 def task_7(df):
-    print(df['LIST'].corr(df['ARRAY_2']))
+    print(df['TUPLE'].corr(df['ARRAY_2']))
     print(df.corr())
 
 
@@ -141,9 +147,8 @@ def main():
     df = task_2(first)
     task_3(df.drop(['ARRAY'], axis='columns'))
     task_4(df.drop(['ARRAY'], axis='columns'))
-    df_copy = df
-    df = task_5(df.drop(['ARRAY'], axis='columns'))
-    df = task_6(df_copy)
+    df = task_6(df)
+    df = task_5(df)
     task_7(df)
 
 
